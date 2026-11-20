@@ -115,6 +115,17 @@ flowchart LR
 - **아쉬운 점**: 모든 경로에 `no-store`를 걸어 해시가 붙은 JS·CSS까지 캐시하지 않음 → HTML만 no-cache로 두는 것이 더 적절
 </details>
 
+## 🔧 프로젝트 종료 후 개선 (2026.11)
+> 포트폴리오를 정리하며 코드를 다시 보다가 찾은 한계 3가지를 고쳐 원본 레포에 PR로 올렸습니다.
+
+| 개선 | 결과 | PR |
+| :--- | :--- | :---: |
+| **백그라운드 알림 클릭 처리** — 서비스 워커 `notificationclick` 추가, FCM SDK 자동 표시로 생기던 중복 알림 제거 | 서비스 워커 단위 테스트 **0/7 → 7/7** | [#69](https://github.com/AIYA-CapstoneDesign/FAIN_FE/pull/69) |
+| **GPT 리포트 쿼리 캐싱** — 조회마다 GPT로 리포트를 다시 만드는 API 구조를 확인하고, 데이터별 `staleTime`과 변경 시점 무효화 설계 | 보호자 이동 흐름 기준 GPT 호출 **6회 → 3회** | [#70](https://github.com/AIYA-CapstoneDesign/FAIN_FE/pull/70) |
+| **보호자·환자 정보를 TanStack Query로 전환** — Redux·localStorage에 있던 서버 데이터를 Query 캐시로 이동 | localStorage에 남던 개인·의료정보 **14개 필드 → 0개** | [#71](https://github.com/AIYA-CapstoneDesign/FAIN_FE/pull/71) |
+
+<sub>※ 서버가 종료되어 실서버가 아닌 테스트·시뮬레이션 기준으로 측정했습니다.</sub>
+
 <details>
 <summary><b>📂 Folder Structure · 🚀 Getting Started</b></summary>
 
